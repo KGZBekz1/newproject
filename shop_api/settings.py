@@ -2,12 +2,13 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-замени_на_свой'
+SECRET_KEY = 'your-secret-key'  # Замени на свой ключ
 
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Приложения проекта
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -15,7 +16,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Сторонние библиотеки
     'rest_framework',
+
+    # Своё приложение
     'product',
 ]
 
@@ -49,6 +54,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shop_api.wsgi.application'
 
+# База данных
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -56,6 +62,7 @@ DATABASES = {
     }
 }
 
+# Валидаторы паролей
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -71,6 +78,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Язык и время
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -79,6 +87,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Статика
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

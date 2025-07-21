@@ -1,15 +1,18 @@
-from rest_framework import viewsets
+from rest_framework.viewsets import ModelViewSet
 from .models import Category, Product, Review
 from .serializers import CategorySerializer, ProductSerializer, ReviewSerializer
 
-class CategoryViewSet(viewsets.ModelViewSet):
+
+class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class ProductViewSet(viewsets.ModelViewSet):
+
+class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-class ReviewViewSet(viewsets.ModelViewSet):
+
+class ReviewViewSet(ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
