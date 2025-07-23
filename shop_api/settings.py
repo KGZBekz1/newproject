@@ -1,9 +1,13 @@
+import os
 from pathlib import Path
 
+# Базовая директория проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'your-secret-key'  # Замени на свой ключ
+# Секретный ключ (для продакшна нужно скрывать)
+SECRET_KEY = 'your-secret-key'
 
+# Для разработки оставляем дебаг включённым
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -17,12 +21,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Сторонние библиотеки
+    # Сторонние приложения
     'rest_framework',
 
-    # Своё приложение
+    # Локальные приложения
     'product',
+    'users',
 ]
+
+# Кастомная модель пользователя
+AUTH_USER_MODEL = 'users.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,7 +62,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'shop_api.wsgi.application'
 
-# База данных
+# База данных (по умолчанию SQLite)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -78,7 +86,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Язык и время
+# Язык и часовой пояс
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
